@@ -1,0 +1,115 @@
+.login-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4f8cff 0%, #235390 100%);
+}
+
+.login-form {
+  background: #222;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 320px;
+}
+
+.login-form h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.login-form input {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #333;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.login-form input:focus {
+  background: #444;
+}
+
+.login-form button {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #4f8cff;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-form button:hover {
+  background: #235390;
+}
+
+.login-error {
+  color: #ff6b6b;
+  background: #2a1a1a;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.login-label-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.login-label-group label {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.1rem;
+  text-align: center;
+}
+
+/* Responsividade para mobile/tablet */
+@media (max-width: 600px) {
+  .login-form {
+    min-width: unset;
+    width: 95vw;
+    padding: 1.5rem 0.5rem;
+    border-radius: 10px;
+    gap: 1rem;
+  }
+  .login-container {
+    padding: 0;
+  }
+  .login-form h2 {
+    font-size: 1.5rem;
+  }
+  .login-form input, .login-form button {
+    font-size: 1rem;
+    width: 100%;
+    min-width: 0;
+  }
+  .login-label-group label {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-form {
+    width: 100vw;
+    padding: 1rem 0.2rem;
+  }
+}
