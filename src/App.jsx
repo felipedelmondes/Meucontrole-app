@@ -1,29 +1,73 @@
-import Login from './Login'
-import { useState } from 'react'
-import logo from './assets/logo-meucontrole.svg';
+import Login from './pages/Login';
+import { useState, useEffect } from 'react';
+import Home from './pages/Home';
+import './App.css';
+
+function isTokenValid() {
+  const token = window.getToken && window.getToken();
+  if (!token) return false;
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    // exp está em segundos
+    if (!payload.exp) return false;
+    const now = Math.floor(Date.now() / 1000);
+    return payload.exp > now;
+  } catch {
+    return false;
+  }
+}
+
+function getUserFromToken() {
+  const token = window.getToken && window.getToken();
+  if (!token) return null;
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return { username: payload.unique_name };
+  } catch {
+    return null;
+  }
+}
 
 function App() {
-  const [isLogged, setIsLogged] = useState(false)
-  const version = import.meta.env.VITE_APP_VERSION || '1.0.0'
+  const [user, setUser] = useState(null);
 
-  const handleLogin = () => {
-    setIsLogged(true)
-  }
+  // Sempre verifica o token ao carregar e a cada 10s
+  useEffect(() => {
+    function checkToken() {
+      if (!isTokenValid()) {
+        setUser(null);
+        if (window.removeToken) window.removeToken();
+      } else {
+        setUser(getUserFromToken());
+      }
+    }
+    checkToken(); // verifica imediatamente ao carregar
+    const interval = setInterval(checkToken, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
-  if (!isLogged) {
-    return <Login onLogin={handleLogin} />
+  const handleLogin = (username, loginResult) => {
+    setUser({ username, ...loginResult });
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    if (window.removeToken) window.removeToken();
+  };
+
+  if (!user) {
+    return (
+      <div className="app-container">
+        <Login onLogin={handleLogin} />
+      </div>
+    );
   }
 
   return (
-    <div style={{ color: '#fff', textAlign: 'center', marginTop: '3rem' }}>
-      <img src={logo} alt="Logo MeuControle" style={{ width: 120, marginBottom: 16 }} />
-      <h1>Bem-vindo ao MeuControle!</h1>
-      <p>Você está autenticado.</p>
-      <footer style={{ marginTop: 40, color: '#aaa', fontSize: 14 }}>
-        v{version}
-      </footer>
+    <div className="app-container">
+      <Home user={user} onLogout={handleLogout} />
     </div>
-  )
+  );
 }
 
 export default App

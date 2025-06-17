@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4f8cff 0%, #235390 100%);
+  background: linear-gradient(180deg, #222c44 0%, #235390 100%);
 }
 
 .login-form {

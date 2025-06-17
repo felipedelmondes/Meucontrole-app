@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --main-gradient: linear-gradient(180deg, #222c44 0%, #235390 100%);
 }
 
 a {
@@ -52,6 +54,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Garantindo que todos os elementos usem o background correto */
+html, body, #root, .App {
+  background: var(--main-gradient) !important;
 }
 
 @media (prefers-color-scheme: light) {
