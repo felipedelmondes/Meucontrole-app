@@ -212,3 +212,87 @@
 .submit-button:hover {
   background-color: #235390;
 }
+
+.loading-message, .error-message, .no-data-message {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.loading-message {
+  color: #4f8cff;
+}
+
+.error-message {
+  color: #e55;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.no-data-message {
+  color: #888;
+  font-style: italic;
+}
+
+.retry-button {
+  background-color: #4f8cff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.retry-button:hover {
+  background-color: #3a6dc0;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  min-width: 70px;
+}
+
+.status-badge.ativo {
+  background-color: rgba(39, 174, 96, 0.2);
+  color: #27ae60;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+.status-badge.inativo {
+  background-color: rgba(192, 57, 43, 0.2);
+  color: #c0392b;
+  border: 1px solid rgba(192, 57, 43, 0.3);
+}
+
+.form-error-message {
+  background-color: rgba(192, 57, 43, 0.1);
+  border: 1px solid rgba(192, 57, 43, 0.3);
+  border-left: 4px solid #c0392b;
+  color: #c0392b;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.form-success-message {
+  background-color: rgba(39, 174, 96, 0.1);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+  border-left: 4px solid #27ae60;
+  color: #27ae60;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+

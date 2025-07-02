@@ -56,3 +56,95 @@
 .home-dashboard-container, .home-dashboard-card {
   display: none;
 }
+
+/* Estilo para seções de conteúdo */
+.home-dashboard, .home-clients {
+  width: 100%;
+  padding: 80px 0 30px;
+}
+
+.home-dashboard, .home-clients {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.dashboard-welcome {
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.welcome-message {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #235390;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-instruction {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.feature-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #4f8cff;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #e7f0ff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.feature-content {
+  flex: 1;
+  text-align: left;
+}
+
+.feature-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #235390;
+}
+
+.feature-content p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.home-clients h2, .home-dashboard h2 {
+  color: #235390;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid #4f8cff;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
